@@ -1,6 +1,6 @@
 {
     "name": "SLIDDES.Networking.Web",
-    "rootNamespace": "",
+    "rootNamespace": "SLIDDES.Networking.Web",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

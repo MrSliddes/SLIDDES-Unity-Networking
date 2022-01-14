@@ -1,7 +1,9 @@
 {
     "name": "SLIDDES.Networking",
-    "rootNamespace": "",
-    "references": [],
+    "rootNamespace": "SLIDDES.Networking",
+    "references": [
+        "GUID:6fcaa4ca5eb8ff94a91255516e2afdca"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
