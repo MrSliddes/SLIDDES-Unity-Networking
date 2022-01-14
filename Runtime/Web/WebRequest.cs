@@ -28,6 +28,7 @@ namespace SLIDDES.Networking.Web
                 string[] pages = url.Split('/');
                 int page = pages.Length - 1;
 
+#if UNITY_2020_3_OR_NEWER
                 switch(webRequest.result)
                 {
                     case UnityWebRequest.Result.ConnectionError:
@@ -43,6 +44,16 @@ namespace SLIDDES.Networking.Web
                         Debug.Log("[WebRequest] Success: " + pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
                         break;
                 }
+#elif UNITY_2019_4_OR_NEWER
+                if(webRequest.isNetworkError)
+                {
+                    Debug.Log("[WebRequest] Network Error: " + pages[page] + ": Error: " + webRequest.error);
+                }
+                else
+                {
+                    Debug.Log("[WebRequest] Success: " + pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
+                }
+#endif
             }
             yield break;
         }
@@ -67,23 +78,38 @@ namespace SLIDDES.Networking.Web
                 string[] pages = url.Split('/');
                 int page = pages.Length - 1;
 
+#if UNITY_2020_3_OR_NEWER
                 switch(webRequest.result)
                 {
                     case UnityWebRequest.Result.ConnectionError:
                         Debug.LogError("[WebRequest] Connection Error: " + pages[page] + ": Error: " + webRequest.error);
-                        result("{\"result\":\"1000\"}"); yield break;
+                        result("{\"result\":\"1000\"}"); 
+                        yield break;
                     case UnityWebRequest.Result.DataProcessingError:
                         Debug.LogError("[WebRequest] Data Processing Error: " + pages[page] + ": Error: " + webRequest.error);
-                        result("{\"result\":\"1001\"}"); yield break;
+                        result("{\"result\":\"1001\"}"); 
+                        yield break;
                     case UnityWebRequest.Result.ProtocolError:
                         Debug.LogError("[WebRequest] Protocol Error: " + pages[page] + ": HTTP Error: " + webRequest.error);
-                        result("{\"result\":\"1002\"}"); yield break;
+                        result("{\"result\":\"1002\"}"); 
+                        yield break;
                     case UnityWebRequest.Result.Success:
                         string s = webRequest.downloadHandler.text;
-                        result(s); yield break;
+                        result(s); 
+                        yield break;
                 }
+#elif UNITY_2019_4_OR_NEWER
+                if (webRequest.isNetworkError)
+                {
+                    Debug.Log("[WebRequest] Network Error: " + pages[page] + ": Error: " + webRequest.error);
+                }
+                else
+                {
+                    result(s); 
+                    yield break;
+                }
+#endif
             }
-
             yield break;
         }
     }
