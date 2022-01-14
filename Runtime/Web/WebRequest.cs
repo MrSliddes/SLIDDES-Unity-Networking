@@ -105,6 +105,7 @@ namespace SLIDDES.Networking.Web
                 }
                 else
                 {
+                    string s = webRequest.downloadHandler.text;
                     result(s); 
                     yield break;
                 }
