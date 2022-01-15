@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
+## [1.2.0] - 2022-01-15
+### Changed
+- Renamed repository to SLIDDES-Unity-Networking-WebGL to split all networking namespaces since it might cause compactability issues.
+- Made SLIDDES.Networking.Web into a sepperate package
+
 ## [1.1.0] - 2022-01-15
 ### Added
 - WebGL Networking
