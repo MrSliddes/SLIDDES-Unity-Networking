@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.6",
+    "shortid": "^2.2.16",
+    "socketio": "^1.0.0",
+    "uid": "^2.0.0"
+  },
+  "devDependencies": {
+    "debug": "^4.3.2",
+    "parsejson": "^0.0.3"
+  },
+  "type": "commonjs"
+}
